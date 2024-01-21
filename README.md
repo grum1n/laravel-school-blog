@@ -10,6 +10,7 @@
 
     php artisan make:controller DashboardController
     php artisan make:controller ProfileController
+    php artisan make:controller IdeaController
 
 #   Project - School Blog
 
