@@ -1,6 +1,9 @@
+
 #   Model
 
     php artisan make:model Idea
+
+    php artisan make:model Comment -m -c
 
 #   Migration
 
