@@ -26,7 +26,7 @@ class IdeaController extends Controller
         ]);
        
         Idea::create([
-            'content' => $validated,
+            'content' => $validated['content'],
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Idea created successfully!');

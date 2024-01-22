@@ -2,7 +2,7 @@
     <form action="{{ route('ideas.comments.store', $idea->id) }}" method="POST" class="w-full mx-auto h-full">
         @csrf
         <label for="content" class="block pl-4 mb-2 text-sm font-medium text-gray-100">New Comment</label>
-        <textarea name="content" id="content" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="New Idea..."></textarea>
+        <input type="text" name="content" id="content" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="New Idea..." />
         @error('content')
             <span class="block mt-2 text-sm text-red-500">{{ $message }}</span>
         @enderror

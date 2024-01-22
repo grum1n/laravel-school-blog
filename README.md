@@ -1,4 +1,3 @@
-
 #   Model
 
     php artisan make:model Idea
@@ -14,6 +13,7 @@
     php artisan make:controller DashboardController
     php artisan make:controller ProfileController
     php artisan make:controller IdeaController
+    php artisan make:controller AuthController
 
 #   Project - School Blog
 
