@@ -24,13 +24,30 @@
                 <li class="mr-3 py-2 lg:py-0">
                     <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Active</a>
                 </li>
+                @guest
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('register') }}">Register</a>
+                    </li>
+                @endguest
+
+                @auth
+                    <li class="mr-3 py-2 lg:py-0">
+                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="">{{ Auth::user()->email }}</a>
+                    </li>
+                    <li class="mr-3 py-2 lg:py-0">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="inline-block text-gray-300 no-underline hover:underline py-2 px-4">
+                                Logout
+                            </button>
+                        </form>
+                       
+                    </li>
+                @endauth
                
-                <li class="mr-3 py-2 lg:py-0">
-                    <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="#">Login</a>
-                </li>
-                <li class="mr-3 py-2 lg:py-0">
-                    <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('register') }}">Register</a>
-                </li>
             </ul>
         </div>
     </div>

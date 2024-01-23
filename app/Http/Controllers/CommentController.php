@@ -13,10 +13,13 @@ class CommentController extends Controller
         $validated = request()->validate([
             'content' => 'required|min:2|max:240',
         ]);
+
+        $userID = auth()->id();
        
         Comment::create([
             'idea_id' => $idea->id,
             'content' => $validated['content'],
+            'user_id' => $userID,
         ]);
 
     //    $comment = new Comment();

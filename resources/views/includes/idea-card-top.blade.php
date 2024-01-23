@@ -31,11 +31,12 @@
                                 <div class="w-full flex-none text-lg text-gray-200 font-bold leading-none">
                                     <a href="{{ route('ideas.show', $idea->id) }}"> {{ $idea->content }}</a>
                                 </div>
-                                {{-- <div class="flex-auto text-gray-400 my-1">
-                                    <span class="mr-3 ">UI/UX Designer</span>
-                                    <span class="mr-3 border-r border-gray-600  max-h-0"></span>
-                                    <span>Cochin, IND</span>
-                                </div> --}}
+                                <div class="flex-auto text-gray-400 my-1">
+                                    <span class="mr-3 ">{{ $idea->user->name }}</span>
+                                    {{-- <span class="mr-3 ">UI/UX Designer</span> --}}
+                                    {{-- <span class="mr-3 border-r border-gray-600  max-h-0"></span>
+                                    <span>Cochin, IND</span> --}}
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,8 @@
 
     php artisan make:migration create_ideas_table
 
+    php artisan migrate:refresh --step=2
+
 #   Controllers
 
     php artisan make:controller DashboardController
