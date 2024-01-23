@@ -9,11 +9,18 @@
             @include('includes.submit-idea')
 
             <div class="flex flex-col gap-4">
-                @foreach ($ideas as $idea)
-    
-                    @include('includes.idea-card-top')
-                    
-                @endforeach
+                <hr>
+                @if (count($ideas) > 0)
+                    @foreach ($ideas as $idea)
+        
+                        @include('includes.idea-card-top')
+                        
+                    @endforeach
+
+                    @else 
+                   
+                    No results found
+                @endif
             </div>
 
 
