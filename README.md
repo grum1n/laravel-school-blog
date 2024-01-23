@@ -14,7 +14,9 @@
 
     php artisan migrate:refresh --step=2
 
-    hp artisan make:migration add_bio_and_image_to_use
+    php artisan make:migration add_bio_and_image_to_use
+
+    php artisan make:migration create_follower_user_table --create
 
 #   Controllers
 
@@ -23,6 +25,7 @@
     php artisan make:controller IdeaController
     php artisan make:controller AuthController
     php artisan make:controller UserController -r
+    php artisan make:controller FollowerController
 
 #   Project - School Blog
 

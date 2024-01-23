@@ -105,9 +105,21 @@
                         </div>
                         @auth
                             @if (Auth::id() !== $user->id)
-                                <a href="https://www.behance.net/ajeeshmon" target="_blank" class="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">
-                                    FOLLOW
-                                </a>
+                                @if (Auth::user()->follows($user))
+
+                                    <form action="{{ route('users.unfollow', $user->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="flex-no-shrink bg-red-400 hover:bg-red-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">UNFOLLOW</button>
+                                    </form>
+
+                                    @else
+
+                                    <form action="{{ route('users.follow', $user->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="flex-no-shrink bg-green-400 hover:bg-green-500 px-5 ml-4 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-green-300 hover:border-green-500 text-white rounded-full transition ease-in duration-300">FOLLOW</button>
+                                    </form>
+                                    
+                                @endif
                             @endif
                         @endauth
                         </div>
