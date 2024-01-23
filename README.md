@@ -31,6 +31,7 @@
     php artisan make:controller UserController -r
     php artisan make:controller FollowerController
     php artisan make:controller IdeaLikeController
+    php artisan make:controller FeedController --invokable
 
 #   Project - School Blog
 

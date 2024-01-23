@@ -90,13 +90,12 @@
                         </div>
                     </div> --}}
                     <div class="flex pt-2  text-sm text-gray-400">
-                        {{-- <div class="flex-1 inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
-                                </path>
+                        <div class="flex-1 inline-flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
                             </svg>
-                            <p class="">1.2k Followers</p>
-                        </div> --}}
+                            <p class="">{{ $idea->created_at->diffForHumans() }}</p>
+                        </div>
                      
                           @include('ideas.partials.like-button')
                         
