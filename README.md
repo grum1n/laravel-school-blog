@@ -18,6 +18,10 @@
 
     php artisan make:migration create_follower_user_table --create
 
+    php artisan make:migration remove_likes_from_ideas
+
+    php artisan make:migration create_idea_like_table
+
 #   Controllers
 
     php artisan make:controller DashboardController
@@ -26,6 +30,7 @@
     php artisan make:controller AuthController
     php artisan make:controller UserController -r
     php artisan make:controller FollowerController
+    php artisan make:controller IdeaLikeController
 
 #   Project - School Blog
 

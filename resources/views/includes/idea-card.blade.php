@@ -36,7 +36,7 @@
          @include('includes.comments-box')
 
       
-         @foreach ($idea->comments as $comment)
+         @forelse ($idea->comments as $comment)
             <div>
                {{ $comment->created_at }}
             </div>
@@ -55,6 +55,9 @@
                   <p class="text-xs text-gray-600 pt-2">0 out of 0 found this useful</p>
                </div>
             </div>
-         @endforeach
+            @empty
+            <span class="text-gray-200"> No comments found</span>
+           
+         @endforelse
    @endif
 </div>
