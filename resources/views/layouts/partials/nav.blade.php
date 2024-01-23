@@ -35,7 +35,7 @@
 
                 @auth
                     <li class="mr-3 py-2 lg:py-0">
-                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="">{{ Auth::user()->email }}</a>
+                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('profile') }}">{{ Auth::user()->email }}</a>
                     </li>
                     <li class="mr-3 py-2 lg:py-0">
                         <form action="{{ route('logout') }}" method="POST">

@@ -32,7 +32,7 @@
                                     <a href="{{ route('ideas.show', $idea->id) }}"> {{ $idea->content }}</a>
                                 </div>
                                 <div class="flex-auto text-gray-400 my-1">
-                                    <span class="mr-3 ">{{ $idea->user->name }}</span>
+                                    <a href="{{ route('users.show', $idea->user->id) }}" class="block mr-3 ">{{ $idea->user->name }}</a>
                                     {{-- <span class="mr-3 ">UI/UX Designer</span> --}}
                                     {{-- <span class="mr-3 border-r border-gray-600  max-h-0"></span>
                                     <span>Cochin, IND</span> --}}
@@ -150,6 +150,9 @@
                     @include('includes.comments-box')
 
                     @foreach ($idea->comments as $comment)
+                        <div>
+                        {{ $comment->user->name }}
+                        </div>
                         <div>
                         {{ $comment->created_at }}
                         </div>
