@@ -22,14 +22,15 @@
 
             <ul class="list-reset lg:flex justify-end items-center">
                 <li class="mr-3 py-2 lg:py-0">
-                    <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Active</a>
+                    <a class="{{ Route::is('dashboard') ? 'font-bold' : 'hover:underline' }} inline-block text-gray-300 no-underline py-2 px-4" href="{{ route('dashboard') }}">Home</a>
                 </li>
+                
                 @guest
                     <li class="mr-3 py-2 lg:py-0">
-                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('login') }}">Login</a>
+                        <a class="{{ Request::is('login') ? 'font-bold' : 'hover:underline' }} inline-block text-gray-300 no-underline py-2 px-4" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="mr-3 py-2 lg:py-0">
-                        <a class="inline-block text-gray-300 no-underline hover:underline py-2 px-4" href="{{ route('register') }}">Register</a>
+                        <a class="{{ Route::is('register') ? 'font-bold' : 'hover:underline' }} inline-block text-gray-300 no-underline py-2 px-4" href="{{ route('register') }}">Register</a>
                     </li>
                 @endguest
 
