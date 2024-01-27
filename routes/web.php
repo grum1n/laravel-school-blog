@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::view('/about', 'about');
+Route::view('/privacy_terms', 'privacy_terms');
 
 Route::resource('ideas', IdeaController::class)->except(['index', 'create', 'show'])->middleware('auth');
 Route::resource('ideas', IdeaController::class)->only(['show']);

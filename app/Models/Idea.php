@@ -18,7 +18,12 @@ class Idea extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->latest();
+    }
+
+    public function last_three_comments()
+    {
+        return $this->hasMany(Comment::class)->latest()->take(3)->get();
     }
 
     public function user()

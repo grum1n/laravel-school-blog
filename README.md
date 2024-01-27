@@ -1,3 +1,20 @@
+#   Components
+
+    php artisan make:component NavLink
+    php artisan make:component NavButton
+    php artisan make:component NavLogo
+    php artisan make:component NavContainer
+    php artisan make:component NavUlContainer
+    php artisan make:component NavIconLink
+    php artisan make:component MainContainer
+    php artisan make:component AsideContainer
+    php artisan make:component AsideBox
+    php artisan make:component ContentBox
+
+#   Paggination
+
+    php artisan vendor:publish --tag=laravel-pagination
+
 #   Image
 
     php artisan storage:link

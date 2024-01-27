@@ -5,3 +5,8 @@
 [x-cloak] {
     display: none;
 }
+
+/* header color */
+.transparent-header{
+    background-color: #172554;
+}
