@@ -1,3 +1,15 @@
+
+#   Cookies
+
+    composer require spatie/laravel-cookie-consent
+
+    php artisan vendor:publish --provider="Spatie\CookieConsent\CookieConsentServiceProvider" --tag="cookie-consent-config"
+
+
+    php artisan vendor:publish --provider="Spatie\CookieConsent\CookieConsentServiceProvider" --tag="cookie-consent-views"
+
+
+
 #   Components
 
     php artisan make:component NavLink

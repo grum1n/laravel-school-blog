@@ -5,7 +5,7 @@
         x-data="{ showAlert: true }"
         x-init="setTimeout(() => showAlert = false, 3000)"
         role="alert"
-        class="fixed bottom-3 right-3 flex flex-col justify-center p-4 bg-green-600 border-green-800 shadow-md hover:shodow-lg rounded-2xl z-50">
+        class="fixed bottom-[135px] lg:bottom-20 right-3 flex flex-col justify-center p-4 bg-green-600 border-green-800 shadow-md hover:shodow-lg rounded-2xl z-50">
         <div class=" text-gray-100 flex items-center gap-8">
             <p> 
                 {{ session('success') }}

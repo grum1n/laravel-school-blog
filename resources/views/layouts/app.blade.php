@@ -11,6 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-blue-950 font-poppins relative">
+    @include('cookie-consent::index')
 
     @include('layouts.header')
     
