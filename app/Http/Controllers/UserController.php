@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class UserController extends Controller
 {
@@ -30,6 +31,9 @@ class UserController extends Controller
      */
     public function update(User $user)
     {
+        $WIDTH = 200;
+        $THUMBNAIL_WIDTH = 30;
+
         $validated = request()->validate(
             [
                 'name' => 'required|min:3|max:40',
@@ -39,11 +43,18 @@ class UserController extends Controller
             ]
         );
 
-        if(request()->has('image')){
-            $imagePath = request()->file('image')->store('profile', 'public');
-            $validated['image'] = $imagePath;
+        // if(request()->has('image')){
+        //     $imagePath = request()->file('image')->store('profile', 'public');
+        //     $validated['image'] = $imagePath;
 
-            Storage::disk('public')->delete($user->image ?? '');
+        //     Storage::disk('public')->delete($user->image ?? '');
+        // }
+
+        if (request()->has('image')) {
+            $image = request()->file('image');
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move(\public_path('images/profile/'), $image_name);
+            $validated['image'] = $image_name;
         }
 
         $user->update($validated);
