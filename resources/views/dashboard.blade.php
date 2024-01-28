@@ -16,12 +16,14 @@
                     {{-- <h2 class="text-gray-400 text-md font-normal">Newest</h2>
                     <h2 class="text-gray-400 text-md font-normal">Following</h2> --}}
                 </div>
-                <div x-data="{ showModal: false }" @keydown.window.escape="showModal = false">
-                    <button @click="showModal = !showModal" class="w-[150px] flex justify-center items-center px-5 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-full font-semibold text-white cursor-pointer">
+               
+                <div x-data="{ showModal: false }" @keydown.window.escape="showModal = false" class="relative">
+                    <button @click="showModal = !showModal" class="w-[150px] flex justify-center items-center px-5 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-full font-semibold text-white cursor-pointer relative">
                         <svg class="w-4 h-4 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
                         <span class="text-white">New Idea</span>
+                        <span class="animate-ping absolute w-28 h-10 inline-flex border rounded-full border-indigo-400 opacity-25"></span>
                     </button>
                     
                     <div
@@ -84,16 +86,7 @@
             <x-aside-box name="New Cooments">
                 @if (count($ideas_comments) >= 1)
                     @foreach ($ideas_comments as $i_comment)
-                        <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                            <div class="flex justify-start items-center gap-2">
-                                <x-circle-image-box :path="$i_comment->user->getImageURL()" :altName="$i_comment->user->name" class="w-6 h-6" />
-                                <a href="{{ route('users.show', $i_comment->user->id) }}">
-                                    <x-user-name :userName="$i_comment->user->name" />
-                                </a>
-                            </div>
-                            <p class="font-bold text-gray-200">{{ $i_comment->content }}</p>
-                            <span class="text-gray-500 font-normal">{{ $i_comment->created_at->diffForHumans() }} · <a href="{{ route('ideas.show', $i_comment->idea->id) }}" class="text-indigo-500 hover:indigo-600 underline">Idea link</a></span>
-                        </div>
+                        @include('includes.comment-mini-card')
                     @endforeach
                     @else
                   
@@ -106,15 +99,7 @@
             <x-aside-box name="Last registered Students">
                 @if (count($last_three_registered_users) >= 1)
                     @foreach ($last_three_registered_users as $last_users)
-                        <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                            <div class="flex justify-start items-center gap-2">
-                                <x-circle-image-box :path="$last_users->getImageURL()" :altName="$last_users->name" class="w-6 h-6" />
-                                <a href="{{ route('users.show', $last_users->id) }}">
-                                    <x-user-name :userName="$last_users->name" />
-                                </a>
-                            </div>
-                            <span class="text-gray-500 font-normal">{{ $last_users->created_at->diffForHumans() }}</span>
-                        </div>
+                        @include('includes.user-mini-card')
                     @endforeach
                     @else
                   
