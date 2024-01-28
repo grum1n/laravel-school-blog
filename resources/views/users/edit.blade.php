@@ -6,7 +6,6 @@
             <x-content-box>
                 <li class="flex flex-col gap-4">                
                     @include('includes.edit-user-profile')
-                    
                 </li>
             </x-content-box>
         </div>

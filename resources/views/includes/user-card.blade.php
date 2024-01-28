@@ -6,7 +6,7 @@
         <div class="bg-gradient-to-r from-[#6c73ff] to-[#2b2d4e] border border-gray-800 shadow-lg p-4 opacity-80">
             <div class="flex-none sm:flex">
                 <div class=" relative h-32 w-32   sm:mb-0 mb-3">
-                    <img src="{{ $user->getImageURL() }}" alt="{{ $user->name }}" class=" w-32 h-32 object-cover rounded-2xl">
+                    <img src="{{ asset('storage/' . $user->getImageURL()) }}" alt="{{ $user->name }}" class=" w-32 h-32 object-cover rounded-2xl">
                     @auth
                         @if (Auth::id() === $user->id)
                             <a href="{{ route('users.edit', $user->id) }}" title="Edit profile" class="absolute -right-2 bottom-2   -ml-3  text-white p-1 text-xs bg-green-400 hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">

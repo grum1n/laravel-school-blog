@@ -85,12 +85,10 @@
                 @if (count($ideas_comments) >= 1)
                     @foreach ($ideas_comments as $i_comment)
                         <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                            <div class="flex justify-start items-center gap-6">
-                                <div class="w-6 h-6">
-                                    <img src="{{ $i_comment->user->getImageURL() }}" alt="" class="w-full h-full rounded-full" >
-                                </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <x-circle-image-box :path="$i_comment->user->getImageURL()" :altName="$i_comment->user->name" class="w-6 h-6" />
                                 <a href="{{ route('users.show', $i_comment->user->id) }}">
-                                    <span class="text-indigo-400">{{ $i_comment->user->name }}</span>
+                                    <x-user-name :userName="$i_comment->user->name" />
                                 </a>
                             </div>
                             <p class="font-bold text-gray-200">{{ $i_comment->content }}</p>
@@ -109,12 +107,10 @@
                 @if (count($last_three_registered_users) >= 1)
                     @foreach ($last_three_registered_users as $last_users)
                         <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                            <div class="flex justify-start items-center gap-6">
-                                <div class="w-6 h-6">
-                                    <img src="{{ $last_users->getImageURL() }}" alt="" class="w-full h-full rounded-full" >
-                                </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <x-circle-image-box :path="$last_users->getImageURL()" :altName="$last_users->name" class="w-6 h-6" />
                                 <a href="{{ route('users.show', $last_users->id) }}">
-                                    <span class="text-indigo-400">{{ $last_users->name }}</span>
+                                    <x-user-name :userName="$last_users->name" />
                                 </a>
                             </div>
                             <span class="text-gray-500 font-normal">{{ $last_users->created_at->diffForHumans() }}</span>

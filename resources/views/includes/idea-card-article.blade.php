@@ -12,12 +12,8 @@
     </h2>
     <div class="flex justify-start items-center gap-2 flex-wrap">
         <a href="{{ route('users.show', $idea->user->id) }}" class="flex justify-start items-center gap-2">
-            <div class="h-6 w-6">
-                <img src="{{ $idea->user->getImageURL() }}" alt="{{ $idea->user->name }}" class="w-full h-full rounded-full object-cover">
-            </div>
-            <span class="text-md text-indigo-400">
-            {{ $idea->user->name }}
-            </span>
+            <x-circle-image-box :path="$idea->user->getImageURL()" :altName="$idea->user->name" class="h-6 w-6" />
+            <x-user-name :userName="$idea->user->name" />
         </a>
         <span class="flex justify-start items-center gap-2 text-md text-gray-500" title="Idea Created">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">

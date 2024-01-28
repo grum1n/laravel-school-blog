@@ -63,7 +63,7 @@
         }, $data.cursorSpeed);
 
     })"
-    class="pt-2 h-9 flex items-center justify-center mx-auto text-center max-w-7xl">
+    class="pt-2 h-9 flex items-center justify-center mx-auto text-center max-w-7xl bg-transparent">
     <div class="relative flex items-center justify-center h-auto">
         <p class="text-xl font-normal leading-tight" x-text="text"></p>
         <span class="absolute right-0 w-2 -mr-2 bg-indigo-500 h-3/4" x-ref="cursor"></span>

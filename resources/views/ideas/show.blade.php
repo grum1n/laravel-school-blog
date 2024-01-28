@@ -67,12 +67,8 @@
                                 <figure class="bg-blue-950 p-4 rounded-md border border-gray-700 min-w-[220px] self-stretch flex items-center justify-center gap-4 flex-col">
                                     <figcaption class="w-full flex justify-start items-center gap-2 ">
                                         <a href="{{ route('users.show', $comment->user->id) }}" class="flex justify-start items-center gap-2">
-                                            <div class="h-6 w-6">
-                                                <img src="{{ $comment->user->getImageURL() }}" alt="{{ $comment->user->name }}" class="w-full h-full rounded-full object-cover">
-                                            </div>
-                                            <span class="text-md text-indigo-300 hover:text-indigo-600">
-                                            {{ $comment->user->name }}
-                                            </span>
+                                            <x-circle-image-box :path="$comment->user->getImageURL()" :altName="$comment->user->name" class="h-6 w-6" />
+                                            <x-user-name :userName="$comment->user->name" />
                                         </a>
                                         <span class="text-md text-gray-500">
                                             · {{ $comment->created_at->diffForHumans() }} · 
@@ -95,10 +91,10 @@
             <x-aside-box name="New Cooments">
                 @foreach ($ideas_comments as $i_comment)
                     <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                        <div class="flex justify-start items-center gap-6 h-6">
-                            <img src="{{ $i_comment->user->getImageURL() }}" alt="" class="w-full h-full rounded-full" >
+                        <div class="flex justify-start items-center gap-2">
+                            <x-circle-image-box :path="$i_comment->user->getImageURL()" :altName="$i_comment->user->name" class="h-6 w-6" />
                             <a href="{{ route('users.show', $i_comment->user->id) }}">
-                                <span class="text-indigo-400">{{ $i_comment->user->name }}</span>
+                                <x-user-name :userName="$i_comment->user->name" />
                             </a>
                         </div>
                         <p class="font-bold text-gray-200">{{ $i_comment->content }}</p>
@@ -110,10 +106,10 @@
             <x-aside-box name="Last registered Students">
                 @foreach ($last_three_registered_users as $last_users)
                     <div class="flex flex-col items-start gap-2 mb-4 border-t border-gray-600 pt-4">
-                        <div class="flex justify-start items-center gap-6 h-6">
-                            <img src="{{ $last_users->getImageURL() }}" alt="" class="w-full h-full rounded-full" >
+                        <div class="flex justify-start items-center gap-2">
+                            <x-circle-image-box :path="$last_users->getImageURL()" :altName="$last_users->name" class="h-6 w-6" />
                             <a href="{{ route('users.show', $last_users->id) }}">
-                                <span class="text-indigo-400">{{ $last_users->name }}</span>
+                                <x-user-name :userName="$last_users->name" />
                             </a>
                         </div>
                         <span class="text-gray-500 font-normal">{{ $last_users->created_at->diffForHumans() }}</span>

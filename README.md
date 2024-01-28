@@ -2,10 +2,7 @@
 #   Cookies
 
     composer require spatie/laravel-cookie-consent
-
     php artisan vendor:publish --provider="Spatie\CookieConsent\CookieConsentServiceProvider" --tag="cookie-consent-config"
-
-
     php artisan vendor:publish --provider="Spatie\CookieConsent\CookieConsentServiceProvider" --tag="cookie-consent-views"
 
 
@@ -22,6 +19,8 @@
     php artisan make:component AsideContainer
     php artisan make:component AsideBox
     php artisan make:component ContentBox
+    php artisan make:component CircleImageBox
+    php artisan make:component UserName
 
 #   Paggination
 
